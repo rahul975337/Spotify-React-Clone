@@ -27,11 +27,15 @@ function App() {
           user: user,
         });
       });
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        });
+        console.log("hey", playlists);
+      });
     }
-    console.log("my token =>", _token);
   }, []);
-  console.log("❤", user);
-  console.log("🧡", token);
 
   //bem naming method
   return (
